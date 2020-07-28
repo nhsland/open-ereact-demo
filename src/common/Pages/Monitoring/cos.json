@@ -1,0 +1,43 @@
+{
+    "summary": {
+        "score": 8,
+        "clinicalRisk": "High",
+        "ab": [
+            {
+                "label": "Respiration Rate",
+                "name": "respirationRate.value",
+                "score": {
+                    "ammount": 0,
+                    "description": "worse"
+                },
+                "section": "A + B",
+                "units": "bpm",
+                "value": "13"
+            },
+            {
+                "label": "Oxygen Saturation",
+                "name": "oxygenSaturation.value",
+                "score": {
+                    "ammount": 3,
+                    "description": "worse"
+                },
+                "section": "A + B",
+                "units": "%",
+                "value": "87"
+            }
+        ],
+        "c": [
+            {
+                "label": "Blood Pressure",
+                "name": "bloodPressure.value",
+                "score": {
+                    "ammount": 0,
+                    "description": "worse"
+                },
+                "section": "C",
+                "units": "mmHg",
+                "value": "160/158"
+            }
+        ]
+    }
+}
