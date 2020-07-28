@@ -3,7 +3,7 @@
 # why alpine? Alpine Linux is a security-oriented, lightweight 
 # Linux distribution. how small? how about 5Mb?
 # in comparison ubuntu 18.04 is about 1.8Gb
-FROM node:alpine
+FROM node:alpine as build
 # Add node-gyp dependencies
 RUN apk add python2 make g++
 # set working directory
@@ -16,6 +16,8 @@ WORKDIR /app
 # which is used for hot reloading
 COPY package.json /app/package.json
 COPY yarn.lock /app/yarn.lock
+COPY public /app/public
+COPY src /app/src
 # since we are using local files and not copying them to docker
 # add the container's node_modules folder to docker's $PATH
 # so that it can find and watch it's dependencies
@@ -23,6 +25,20 @@ ENV PATH /app/node_modules/.bin:$PATH
 # install and cache dependencies
 # n/b: these dependencies are installed inside docker
 # it runs the command "yarn" which is an equivalent of "yarn add"
-RUN yarn
+RUN yarn && yarn build
+# Expose port 3000
+# EXPOSE 3000
 # start the container
-CMD ["yarn", "start"] 
+#CMD ["yarn", "start"] 
+
+FROM nginx:alpine
+
+COPY --from=build /app/build /usr/share/nginx/html/
+
+# remove default nginx configuration file
+RUN rm /etc/nginx/conf.d/default.conf
+# replace with custom one
+COPY nginx/nginx.conf /etc/nginx/conf.d
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
