@@ -32,9 +32,9 @@ FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html/
 
 # remove default nginx configuration file
-RUN rm /etc/nginx/conf.d/default.conf
+# RUN rm /etc/nginx/conf.d/default.conf
 # replace with custom one
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
