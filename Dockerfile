@@ -26,10 +26,6 @@ ENV PATH /app/node_modules/.bin:$PATH
 # n/b: these dependencies are installed inside docker
 # it runs the command "yarn" which is an equivalent of "yarn add"
 RUN yarn && yarn build
-# Expose port 3000
-# EXPOSE 3000
-# start the container
-#CMD ["yarn", "start"] 
 
 FROM nginx:alpine
 
