@@ -35,7 +35,7 @@ export default ({ component: Component, theme, appBar, bottomToolbar, ...rest })
               <Component {...routeProps} />
             </Layout>
           ) : (
-            <Redirect to="/sing-in" />
+            <Redirect to="/sign-in" />
           )
       }
     />

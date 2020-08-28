@@ -13,26 +13,26 @@ import Button from '../../Components/Button';
 //     "No Risk": "#2E7D32"
 //   }[score]);
 
-const mapTotalScoreBackground = score => {
+const mapTotalScoreBackground = (score) => {
   if (score >= 7) {
-    return "#F40013";
+    return '#F40013';
   }
   if (score < 0) {
-    return "#fbf184";
+    return '#fbf184';
   }
-  return ({
-    "6": "#FBC384",
-    "5": "#FBC384",
-    "4": "#2E7D32",
-    "3": "#2E7D32",
-    "2": "#2E7D32",
-    "1": "#2E7D32",
-    "0": "#2E7D32"
-  }[score]);
+  return {
+    '6': '#FBC384',
+    '5': '#FBC384',
+    '4': '#2E7D32',
+    '3': '#2E7D32',
+    '2': '#2E7D32',
+    '1': '#2E7D32',
+    '0': '#2E7D32',
+  }[score];
 };
 
-const mapTotalScoreColor = score => {
-  if ((score >= 0 && score <= 4) || (score >= 7)) {
+const mapTotalScoreColor = (score) => {
+  if ((score >= 0 && score <= 4) || score >= 7) {
     return '#fff';
   }
   return '#000';
@@ -62,10 +62,11 @@ const Parametr = ({ parametr, value, score }) => (
 );
 
 const Section = ({ items, section, handleEdit }) => {
-  const sectionIsEmpty = () => items.filter(item => item.score.ammount >= 1).length < 1;
-  if (sectionIsEmpty()) {
-    return null;
-  }
+  // const sectionIsEmpty = () =>
+  //   items.filter((item) => item.score.ammount >= 1).length < 1;
+  // if (sectionIsEmpty()) {
+  //   return null;
+  // }
   return (
     <>
       <Box pb={1} pt={1}>
@@ -73,7 +74,7 @@ const Section = ({ items, section, handleEdit }) => {
           style={{
             backgroundColor: '#515F9C',
             color: '#fff',
-            maxWidth: '50px'
+            maxWidth: '50px',
           }}
           display="flex"
           justifyContent="center"
@@ -82,36 +83,37 @@ const Section = ({ items, section, handleEdit }) => {
         </Box>
       </Box>
 
-      {items.map(parametr => {
-        if (parametr.score.ammount >= 1) {
-          return <Box pb={1} key={uniqid()}>
+      {items.map((parametr) => {
+        return (
+          <Box pb={1} key={uniqid()}>
             <Box
               display="flex"
               style={{
                 border: '0.0469em solid #757575',
                 borderRadius: '4px',
-                alignItems: 'center'
+                alignItems: 'center',
               }}
             >
               <Parametr
                 parametr={parametr.label}
-                value={`${parametr.value} ${parametr.units ? parametr.units : ''}`}
+                value={`${parametr.value} ${
+                  parametr.units ? parametr.units : ''
+                }`}
                 score={parametr.score}
               />
               <Box ml={2}>
                 <Button
                   variant="contained"
                   onClick={(e) => handleEdit(e, parametr.name)}
-                  color='secondary'
+                  color="secondary"
                 >
                   Edit
-          </Button>
+                </Button>
               </Box>
             </Box>
-          </Box>;
-        }
-      }
-      )}
+          </Box>
+        );
+      })}
     </>
   );
 };
@@ -126,9 +128,8 @@ const TotalNEWSScore = ({ score, clinicalRisk }) => {
         alignItems="center"
         style={{
           backgroundColor: mapTotalScoreBackground(score),
-          color: mapTotalScoreColor(score)
+          color: mapTotalScoreColor(score),
         }}
-
       >
         <Box width={3 / 4}>
           <Box
@@ -139,12 +140,8 @@ const TotalNEWSScore = ({ score, clinicalRisk }) => {
             justifyContent="center"
             alignItems="center"
           >
-            <Box>
-              Total NEWS Score : {absoluteScore}
-            </Box>
-            <Box>
-              Clinical Risk: {clinicalRisk}
-            </Box>
+            <Box>Total NEWS Score : {absoluteScore}</Box>
+            <Box>Clinical Risk: {clinicalRisk}</Box>
           </Box>
         </Box>
         <Box width={1 / 4} pr={1}>
@@ -152,13 +149,13 @@ const TotalNEWSScore = ({ score, clinicalRisk }) => {
             <ScoreIcon score={{ ammount: score, description: 'same' }} />
           </div>
         </Box>
-
       </Box>
     </div>
   );
 };
 
 const Summary = ({ name, nhsNo, summaryData, handleEdit }) => {
+  console.log(summaryData)
   return (
     <div style={{ border: '1px solid black', borderRadius: 2 }}>
       <Grid
@@ -168,29 +165,31 @@ const Summary = ({ name, nhsNo, summaryData, handleEdit }) => {
         alignItems="flex-start"
         style={{ backgroundColor: 'lightgrey' }}
       >
-
         <Grid item>
           <Box m={1}>
-            <Typography align="left" component='h6'>
-              <Box fontWeight={500}>
-                {name}
-              </Box>
+            <Typography align="left" component="h6">
+              <Box fontWeight={500}>{name}</Box>
             </Typography>
           </Box>
           <Box width={300} m={1}>
-            <Typography align="left" component='h6'>
-              <Box fontWeight={500}>
-                {nhsNo}
-              </Box>
+            <Typography align="left" component="h6">
+              <Box fontWeight={500}>{nhsNo}</Box>
             </Typography>
           </Box>
         </Grid>
-
       </Grid>
       <Box m={2}>
-        <Section items={summaryData.ab} section="A + B" handleEdit={handleEdit} />
+        <Section
+          items={summaryData.ab}
+          section="A + B"
+          handleEdit={handleEdit}
+        />
         <Section items={summaryData.c} section="C" handleEdit={handleEdit} />
-        <Section items={summaryData.de} section="D + E" handleEdit={handleEdit} />
+        <Section
+          items={summaryData.de}
+          section="D + E"
+          handleEdit={handleEdit}
+        />
         <TotalNEWSScore
           score={summaryData.score}
           clinicalRisk={summaryData.clinicalRisk}

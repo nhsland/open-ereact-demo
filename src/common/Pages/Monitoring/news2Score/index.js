@@ -160,7 +160,7 @@ export const getSummaryData = (total, form) => {
         units: 'bpm',
         score: {
           ammount: total.respirationRate,
-          description: 'worse'
+          description: 'better'
         }
       },
       {
@@ -171,7 +171,7 @@ export const getSummaryData = (total, form) => {
         section: 'A + B',
         score: {
           ammount: total.oxygenSaturation,
-          description: 'worse'
+          description: 'same'
         }
       }
     ],
@@ -184,7 +184,7 @@ export const getSummaryData = (total, form) => {
         section: 'C',
         score: {
           ammount: total.bloodPressure,
-          description: 'worse'
+          description: 'same'
         }
       },
       {
@@ -195,7 +195,7 @@ export const getSummaryData = (total, form) => {
         section: 'C',
         score: {
           ammount: total.pulseRate,
-          description: 'worse'
+          description: 'same'
         }
       }
     ],

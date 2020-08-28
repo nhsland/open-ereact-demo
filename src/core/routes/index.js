@@ -17,7 +17,7 @@ import SepsisScreening from '../../common/Pages/SepsisScreening';
 export default () => (
   <BrowserRouter>
     <Switch>
-      <OpenRoute theme={theme.login} path="/sing-in" component={SingIn} />
+      <OpenRoute theme={theme.login} path="/sign-in" component={SingIn} />
       <PrivateRoute exact theme={theme.dashboard} appBar bottomToolbar path="/" component={Patients} />
       <PrivateRoute exact theme={theme.dashboard} appBar bottomToolbar path="/tasks" component={Tasks} />
       <PrivateRoute exact theme={theme.main} appBar bottomToolbar path="/search" component={Search} />

@@ -75,7 +75,7 @@ export default ({ history }) => {
                             </Typography>
                         </Box>
                     </Grid>
-                    <form onSubmit={handleSubmit(onSubmit)} id='sing-in'>
+                    <form onSubmit={handleSubmit(onSubmit)} id='sign-in'>
                         <Grid item>
                             <Input
                                 errors={errors}
@@ -120,7 +120,7 @@ export default ({ history }) => {
                         color="success"
                         variant="contained"
                         type='submit'
-                        form='sing-in'
+                        form='sign-in'
                     >
                         {texts.BUTTON_CONFIRM}
                     </Button>
