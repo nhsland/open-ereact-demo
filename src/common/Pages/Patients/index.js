@@ -20,7 +20,7 @@ import BarCode from '../../../resources/img/BarCode.png';
 const SORT_OPTIONS_PATIENTS = [
     {
         id: 'score.ammount',
-        name: 'Early Warning Score'
+        name: 'NEWS2'
     },
     {
         id: 'newsFreq',

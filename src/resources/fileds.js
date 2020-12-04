@@ -61,7 +61,7 @@ const flowRate = {
   label: 'Flow Rate',
   placeholder: 'Flow Rate',
   title: 'Add Flow Rate',
-  units: ['Liters per minute', '%'],
+  units: ['Litres per minute', '%'],
   optionGroups: {
     firstColumn: [...Array(13).keys()]
   },
@@ -157,7 +157,7 @@ const HELP_DIALOG_ISB_BACKGROUND_CONTENT = [
   'What history does the patient have?',
   'Has the patient been complaining of being unwell?',
   'Is the patient taking medication?',
-  'What was the patient’s previous EWS score?'
+  'What was the patient’s previous NEWS2 score?'
 ];
 
 

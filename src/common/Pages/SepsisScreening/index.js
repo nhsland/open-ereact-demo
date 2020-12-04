@@ -73,29 +73,29 @@ export default ({ history }) => {
       setPatient(data[0]);
     }
   }, [response]);
-  const timeoutRef = React.useRef();
-  const [counter, setCounter] = useState(0);
+  // const timeoutRef = React.useRef();
+  // const [counter, setCounter] = useState(0);
 
-  const setDialogTimeout = () => {
-    timeoutRef.current = setTimeout(() => {
-      setCounter(counter + 1);
-      setOpenSummary(false);
-      history.replace(`/recommendations/${patient.id}`);
-    }, 50000);
-    return () => {
-      clearTimeout(timeoutRef.current);
-    };
-  };
+  // const setDialogTimeout = () => {
+  //   timeoutRef.current = setTimeout(() => {
+  //     setCounter(counter + 1);
+  //     setOpenSummary(false);
+  //     history.replace(`/recommendations/${patient.id}`);
+  //   }, 50000);
+  //   return () => {
+  //     clearTimeout(timeoutRef.current);
+  //   };
+  // };
 
-  useEffect(() => {
-    if (counter) {
-      setDialogTimeout();
-    }
-  });
+  // useEffect(() => {
+  //   if (counter) {
+  //     setDialogTimeout();
+  //   }
+  // });
 
   const handleClose = () => {
-    setCounter(0);
-    clearTimeout(timeoutRef.current);
+    // setCounter(0);
+    // clearTimeout(timeoutRef.current);
     setOpenSummary(false);
     history.replace(`/recommendations/${patient.id}`);
   };
@@ -104,7 +104,7 @@ export default ({ history }) => {
     makePostRequest(data);
     setFlag(diagnose);
     setOpenSummary(true);
-    return setCounter(counter + 1);
+    // return setCounter(counter + 1);
   };
 
   const setStepContext = (nextStep, stepContext) => {

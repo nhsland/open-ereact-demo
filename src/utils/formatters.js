@@ -26,7 +26,7 @@ export const formatDate = value => {
     .getFullYear()
     .toString()
     .slice(-2);
-  const day = date.getDay();
+  const day = date.getDate();
   const month = months[date.getMonth()];
   return `${day}-${month}-${year}`;
 };

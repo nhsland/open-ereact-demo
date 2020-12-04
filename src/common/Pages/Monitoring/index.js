@@ -42,7 +42,7 @@ const CHECKBOXES_EDIT_MONITORING_FORM = [
     },
     {
         id: 'bloodGlucose',
-        label: 'Blood Glucose Observation'
+        label: 'Blood Glucose Test'
     },
     {
         id: 'painScore',

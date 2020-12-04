@@ -47,7 +47,7 @@ const SvgIcon = withStyles(() => ({
 
 const mapedSortBy = sort =>
   ({
-    'score.ammount': 'EWS',
+    'score.ammount': 'NEWS2',
     newsFreq: 'news Freq',
     names: 'name',
     priority: 'Priority'

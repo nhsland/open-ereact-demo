@@ -44,7 +44,8 @@ const formatTime = value => {
   const date = new Date(value);
   const houre = date.getHours();
   const minuts = date.getMinutes();
-  return `${houre}:${minuts}`;
+  const result = `${houre}:${minuts}`;
+  return houre  ? result : ''
 };
 
 const formatDate = value => {
@@ -53,9 +54,10 @@ const formatDate = value => {
     .getFullYear()
     .toString()
     .slice(-2);
-  const day = date.getDay();
+  const day = date.getDate();
   const month = months[date.getMonth()];
-  return `${day}-${month}-${year}`;
+  const result = `${day}-${month}-${year}` ;
+  return day & month & year ? result : '' 
 };
 
 const VitalSigns = tableDate => {

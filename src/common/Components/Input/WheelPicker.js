@@ -9,7 +9,7 @@ import Select from "../Select";
 
 
 const FLOW_RATE_UNITS = {
-  Lpm: 'Liters per minute',
+  Lpm: 'Litres per minute',
   percent: '%'
 };
 
@@ -113,7 +113,7 @@ export default ({
   const isFlowRate = name === 'flowRate.value';
   const subtitle = isFlowRate ? (
     <Select
-      options={[{ value: 'Lpm', name: 'Liters per minute' }, { value: 'percent', name: '%' }]
+      options={[{ value: 'Lpm', name: 'Litres per minute' }, { value: 'percent', name: '%' }]
       }
       value={selectedUnits}
       handleChange={setSelectedUnits}
