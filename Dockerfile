@@ -27,7 +27,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 # it runs the command "yarn" which is an equivalent of "yarn add"
 RUN yarn && yarn build
 
-FROM nginx:alpine
+FROM nginx:1.21-alpine
 
 COPY --from=build /app/build /usr/share/nginx/html/
 
